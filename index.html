@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sai Prashanth Dyapa | Portfolio</title>
+  <style>
+    /* Base Styles */
+    body { margin:0; font-family:'Segoe UI',Tahoma,sans-serif; background:linear-gradient(to bottom,#0f172a,#1e293b); color:#e2e8f0; scroll-behavior:smooth; }
+    a { color:#38bdf8; text-decoration:none; }
+    a:hover { color:#60a5fa; }
+
+    /* Navigation */
+    nav { position:fixed; top:0; width:100%; padding:1em 2em; background:rgba(30,41,59,0.9); display:flex; justify-content:center; gap:2em; z-index:100; }
+    nav a { color:#f1f5f9; position:relative; padding-bottom:4px; }
+    nav a.active::after {
+      content:''; position:absolute; height:3px; width:100%; background:#38bdf8; bottom:0; left:0;
+    }
+
+    /* Header */
+    header { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(to right,#1e293b,#334155); padding:2em 1em; }
+    h1 {
+      font-size:3.8em; background:linear-gradient(270deg,#38bdf8,#60a5fa,#22d3ee,#38bdf8); background-size:800% 800%;
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:gradientAnimation 12s ease infinite; margin:0;
+    }
+    @keyframes gradientAnimation { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+
+    .typing { font-size:1.3em; margin-top:1em; min-height:2.2em; }
+    .typing::after { content:'|'; animation:blink 1s step-start infinite; }
+    @keyframes blink { 0%, 50% { opacity:1; } 51%,100% { opacity:0; } }
+
+    .btn {
+      margin-top:1.5em; padding:0.85em 2em; background:#38bdf8; color:#0f172a; font-weight:700; border:none; border-radius:8px;
+      cursor:pointer; transition:transform .2s, background .3s; box-shadow:0 4px 10px rgba(56,221,248,0.4);
+      text-decoration:none; display:inline-block;
+    }
+    .btn:hover { background:#0ea5e9; transform:translateY(-3px); }
+    .btn:active { transform:translateY(-1px); }
+
+    /* Sections */
+    section { padding:6em 2em; max-width:1100px; margin:auto; }
+    h2 { font-size:2.5em; color:#38bdf8; margin-bottom:0.6em; border-bottom:3px solid #38bdf8; padding-bottom:0.2em; }
+    section p { font-size:1.2em; line-height:1.6; max-width:700px; margin:auto; }
+
+    /* Skills */
+    .skills-filter {
+      display:flex; justify-content:center; gap:8px; margin-bottom:1em;
+    }
+    .skills-filter button {
+      padding:6px 12px; border:none; border-radius:20px; cursor:pointer;
+      background:#334155; color:#e2e8f0; transition:background .3s;
+    }
+    .skills-filter button.active, .skills-filter button:hover {
+      background:#38bdf8; color:#0f172a;
+    }
+    .skills-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:2.5em;
+    }
+    .skill-card {
+      background:#1e293b; padding:1.5em 1em; border-radius:15px; box-shadow:0 6px 12px rgba(0,0,0,0.25);
+      text-align:center; transition:transform .3s, box-shadow .3s;
+    }
+    .skill-card:hover { transform:translateY(-8px); box-shadow:0 10px 20px rgba(56,221,248,0.7); }
+    .skill-card img { width:56px; margin-bottom:0.6em; }
+    .skill-card p { font-weight:600; }
+
+    /* Projects tabs */
+    .tabs { display:flex; justify-content:center; gap:10px; margin-bottom:1em; }
+    .tabs button {
+      padding:8px 16px; border:none; border-radius:6px; cursor:pointer;
+      background:#334155; color:#e2e8f0; transition:background .3s;
+    }
+    .tabs button.active, .tabs button:hover {
+      background:#38bdf8; color:#0f172a;
+    }
+    .project-panel { display:none; opacity:0; transition:opacity .4s; }
+    .project-panel.active { display:block; opacity:1; }
+
+    /* Footer */
+    footer { text-align:center; padding:2.5em 1em; background:#1e293b; color:#94a3b8; font-size:0.9em; }
+    footer span.heart { color:#f87171; animation:heartbeat 2s infinite; }
+    @keyframes heartbeat { 0%,100%{transform:scale(1);}50%{transform:scale(1.2);} }
+
+    /* Responsive adjustments */
+    @media(max-width:600px) {
+      nav { padding:1em; }
+      h1 { font-size:2.8em; }
+      section { padding:4em 1em; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about" class="active">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Sai Prashanth Dyapa</h1>
+    <div class="typing" id="funFact"></div>
+    <a class="btn" href="Sai Prashanth-Resume.pdf" download>Download Resume</a>
+    <a class="btn" href="https://github.com/SaiPrashanthDSP" target="_blank">GitHub</a>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Full Stack Developer with 4+ years building scalable web applications using Java, Spring Boot, Angular, and Python. Passionate about CI/CD, clean code, and cloud-native solutions.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-filter">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="backend">Backend</button>
+      <button data-filter="frontend">Frontend</button>
+      <button data-filter="cloud">Cloud/DevOps</button>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card" data-cat="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"><p>Java</p></div>
+      <div class="skill-card" data-cat="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"><p>Spring Boot</p></div>
+      <div class="skill-card" data-cat="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"><p>Angular</p></div>
+      <div class="skill-card" data-cat="frontend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><p>React</p></div>
+      <div class="skill-card" data-cat="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><p>Python</p></div>
+      <div class="skill-card" data-cat="cloud"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg"><p>AWS</p></div>
+      <div class="skill-card" data-cat="cloud"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"><p>Docker</p></div>
+      <div class="skill-card" data-cat="cloud"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"><p>GCP</p></div>
+      <div class="skill-card" data-cat="cloud"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"><p>Azure</p></div>
+      <div class="skill-card" data-cat="backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"><p>PostgreSQL</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="tabs">
+      <button data-tab="interp" class="active">Python Interpreter</button>
+      <button data-tab="scrape">Web Scraping</button>
+    </div>
+    <div id="interp" class="project-panel active">
+        <h3>✔ Python Interpreter</h3>
+        <p>
+          Built a lightweight custom interpreter using Python that evaluates arithmetic expressions and handles assignment operations similar to scripting languages.
+        </p>
+        <ul>
+          <li><strong>Core Features:</strong> Supports variable declarations, assignments, and arithmetic evaluations including +, -, *, /, and nested operations.</li>
+          <li><strong>Parser:</strong> Built a tokenizer and parser from scratch to process user input into abstract syntax trees (ASTs).</li>
+          <li><strong>Error Handling:</strong> Implemented error reporting for invalid syntax and undefined variable references.</li>
+          <li><strong>Learning Outcome:</strong> Deepened understanding of interpreters, expression trees, and evaluation strategies.</li>
+          <li><strong>GitHub Repo:</strong> <a href="https://github.com/SaiPrashanthDSP/Interpreter" target="_blank" rel="noopener noreferrer">View on GitHub</a></li>
+        </ul>
+      
+    </div>
+    <div id="scrape" class="project-panel">
+        <h3>✔ Web Scraping & Data Visualization Tool</h3>
+        <p>
+          A Python-based tool that extracts real-time data from dynamic websites, cleans and processes it for structured analysis,
+          and generates visual reports for trend forecasting and insights.
+        </p>
+        <ul>
+          <li><strong>Web Scraping:</strong> Implemented using Python’s <code>requests</code>, <code>BeautifulSoup</code>, and dynamic rendering tools.</li>
+          <li><strong>Data Cleaning & Analysis:</strong> Handled with Pandas for transformation, deduplication, and normalization.</li>
+          <li><strong>Data Visualization:</strong> Created charts and trend lines with Matplotlib to highlight key patterns.</li>
+          <li><strong>GitHub Repo:</strong> <a href="https://github.com/SaiPrashanthDSP/DataAnalytics_Intro/blob/main/UsingBeautifulSoup.ipynb" target="_blank" rel="noopener noreferrer">View on GitHub</a></li>
+        </ul>
+      
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education & Certifications</h2>
+    <p><strong>M.S. Computer & Info Science</strong> – Southeast Missouri State (05/2024)</p>
+    <p><strong>B.Tech Electronics & Comm. Eng</strong> – Kakatiya University (04/2020)</p>
+    <p><strong>AWS Solutions Architect – Associate</strong> – Issued 04/2025</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:saiprashanthdyapa998@gmail.com">saiprashanthdyapa998@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/SaiPrashanthDSP" target="_blank">github.com/SaiPrashanthDSP</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Sai Prashanth Dyapa. 
+  </footer>
+
+  <script>
+    // Typing effect
+    const facts = [
+  "I build robust full-stack applications using Java, Spring Boot, and Angular.",
+  "I enjoy transforming complex business logic into clean, scalable code.",
+  "CI/CD automation and cloud deployment are second nature to me.",
+  "I thrive on building responsive frontends and secure backends.",
+  "I believe that clean code and strong architecture lead to great software."
+];
+    let fI = 0, cI = 0, isTyping = true;
+    const funFact = document.getElementById('funFact');
+    funFact.textContent = '';
+    function typeLoop() {
+      if (isTyping) {
+        if (cI < facts[fI].length) funFact.textContent += facts[fI][cI++];
+        else { isTyping = false; setTimeout(typeLoop, 2000); return; }
+      } else {
+        if (cI > 0) funFact.textContent = facts[fI].substring(0, --cI);
+        else { isTyping = true; fI = (fI + 1) % facts.length; }
+      }
+      setTimeout(typeLoop, isTyping ? 70 : 50);
+    }
+    typeLoop();
+
+    // Scroll spy
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    window.onscroll = () => {
+      const pos = window.scrollY + window.innerHeight/3;
+      sections.forEach((s, i) => {
+        if (pos >= s.offsetTop) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          navLinks[i].classList.add('active');
+        }
+      });
+    };
+
+    // Skill filtering
+    document.querySelectorAll('.skills-filter button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.skills-filter button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.skill-card').forEach(card => {
+          card.style.display = (filter === 'all' || card.getAttribute('data-cat') === filter) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Project tabs
+    document.querySelectorAll('.tabs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const tab = btn.getAttribute('data-tab');
+        document.querySelectorAll('.project-panel').forEach(p => {
+          p.classList.toggle('active', p.id === tab);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
