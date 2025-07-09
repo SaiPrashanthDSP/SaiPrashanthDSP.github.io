@@ -1,0 +1,119 @@
+/* Base Styles */
+body { margin:0; font-family:'Segoe UI',Tahoma,sans-serif; background:linear-gradient(to bottom,#0f172a,#1e293b); color:#e2e8f0; scroll-behavior:smooth; }
+a { color:#38bdf8; text-decoration:none; }
+a:hover { color:#60a5fa; }
+
+/* Navigation */
+nav { position:fixed; top:0; width:100%; padding:1em 2em; background:rgba(30,41,59,0.9); display:flex; justify-content:center; gap:2em; z-index:100; }
+nav a { color:#f1f5f9; position:relative; padding-bottom:4px; }
+nav a.active::after {
+  content:''; position:absolute; height:3px; width:100%; background:#38bdf8; bottom:0; left:0;
+}
+
+/* Header */
+header { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(to right,#1e293b,#334155); padding:2em 1em; }
+h1 {
+  font-size:3.8em; background:linear-gradient(270deg,#38bdf8,#60a5fa,#22d3ee,#38bdf8); background-size:800% 800%;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:gradientAnimation 12s ease infinite; margin:0;
+}
+@keyframes gradientAnimation { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+
+.typing { font-size:1.3em; margin-top:1em; min-height:2.2em; }
+.typing::after { content:'|'; animation:blink 1s step-start infinite; }
+@keyframes blink { 0%, 50% { opacity:1; } 51%,100% { opacity:0; } }
+
+.btn {
+  margin-top:1.5em; padding:0.85em 2em; background:#38bdf8; color:#0f172a; font-weight:700; border:none; border-radius:8px;
+  cursor:pointer; transition:transform .2s, background .3s; box-shadow:0 4px 10px rgba(56,221,248,0.4);
+  text-decoration:none; display:inline-block;
+}
+.btn:hover { background:#0ea5e9; transform:translateY(-3px); }
+.btn:active { transform:translateY(-1px); }
+
+/* Sections */
+section { 
+    padding: 3em 2em; 
+    max-width: 1100px; 
+    margin: auto; 
+  }h2 { font-size:2.5em; color:#38bdf8; margin-bottom:0.6em; border-bottom:3px solid #38bdf8; padding-bottom:0.2em; }
+section p { font-size:1.2em; line-height:1.6; max-width:700px; margin:auto; }
+
+/* Skills */
+.skills-filter {
+  display:flex; justify-content:center; gap:8px; margin-bottom:1em;
+}
+.skills-filter button {
+  padding:6px 12px; border:none; border-radius:20px; cursor:pointer;
+  background:#334155; color:#e2e8f0; transition:background .3s;
+}
+.skills-filter button.active, .skills-filter button:hover {
+  background:#38bdf8; color:#0f172a;
+}
+.skills-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:2.5em;
+}
+.skill-card {
+  background:#1e293b; padding:1.5em 1em; border-radius:15px; box-shadow:0 6px 12px rgba(0,0,0,0.25);
+  text-align:center; transition:transform .3s, box-shadow .3s;
+}
+.skill-card:hover { transform:translateY(-8px); box-shadow:0 10px 20px rgba(56,221,248,0.7); }
+.skill-card img { width:56px; margin-bottom:0.6em; }
+.skill-card p { font-weight:600; }
+
+/* Projects tabs */
+.tabs { display:flex; justify-content:center; gap:10px; margin-bottom:1em; }
+.tabs button {
+  padding:8px 16px; border:none; border-radius:6px; cursor:pointer;
+  background:#334155; color:#e2e8f0; transition:background .3s;
+}
+.tabs button.active, .tabs button:hover {
+  background:#38bdf8; color:#0f172a;
+}
+.project-panel { display:none; opacity:0; transition:opacity .4s; }
+.project-panel.active { display:block; opacity:1; }
+
+/* Awards */
+.awards-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2em; margin-top:2em;
+}
+.award-card {
+  background:#1e293b; border-radius:12px; padding:1em; box-shadow:0 6px 12px rgba(0,0,0,0.25); text-align:center;
+  transition:transform .3s;
+}
+.award-card:hover { transform:translateY(-5px); }
+.award-card img {
+  max-width:100%; border-radius:8px; margin-bottom:0.8em; height:auto;
+}
+.award-card p { font-size:1.1em; font-weight:600; }
+
+/* Footer */
+footer { text-align:center; padding:2.5em 1em; background:#1e293b; color:#94a3b8; font-size:0.9em; }
+
+@media(max-width:600px) {
+  nav { padding:1em; }
+  h1 { font-size:2.8em; }
+  section { padding:4em 1em; }
+}
+#awards ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+  
+  #awards li {
+    margin-bottom: 1.5em;
+  }
+  
+  #awards a {
+    color: #38bdf8;
+    text-decoration: none;
+  }
+  
+  #awards a:hover {
+    text-decoration: underline;
+  }
+  
+  
